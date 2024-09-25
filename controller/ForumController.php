@@ -28,9 +28,10 @@ class ForumController extends AbstractController implements ControllerInterface{
 
     public function listTopicsByCategory($id) {
 
-        $topicManager = new TopicManager();
         $categoryManager = new CategoryManager();
+        $topicManager = new TopicManager();
         $category = $categoryManager->findOneById($id);
+        
         $topics = $topicManager->findTopicsByCategory($id);
 
         return [
@@ -42,4 +43,30 @@ class ForumController extends AbstractController implements ControllerInterface{
             ]
         ];
     }
+
+
+    public function listPostsByTopics($id) {
+
+        $topicManager = new TopicManager();
+        
+        $postManager = new postManager();
+        $topic = $topicManager->findOneById($id);
+
+        $posts = $postManager->findPostsByTopics($id);
+      
+        
+        return [
+            "view" => VIEW_DIR."forum/listPost.php",
+            "meta_description" => "Liste des post par topics : ".$topic,
+            "data" => [
+                "topic" => $topic,
+                "posts" => $posts
+            ]
+        ];
+    }
+
+  
+
+   
 }
+ 

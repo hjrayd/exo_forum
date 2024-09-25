@@ -19,12 +19,16 @@ class TopicManager extends Manager{
 
         $sql = "SELECT * 
                 FROM ".$this->tableName."  
-                WHERE id_category = :id";
-       
+                WHERE category_id = :id";
+
         // la requête renvoie plusieurs enregistrements --> getMultipleResults
         return  $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]), 
-            $this->tableName
+            $this->className
         );
     }
+
+    //liste des topics
+
+    
 }

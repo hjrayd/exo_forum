@@ -91,6 +91,9 @@ abstract class DAO{
     public static function select($sql, $params = null, bool $multiple = true):?array
     {
         try{
+
+            // var_dump($sql);die;
+
             $stmt = self::$bdd->prepare($sql);
             $stmt->execute($params);
             

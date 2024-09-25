@@ -4,7 +4,7 @@ namespace Model\Entities;
 use App\Entity;
 
 final class Post extends Entity {
-    private $id_post;
+    private $id;
     private $texte;
     private $datePost;
     private $topic;
@@ -17,9 +17,9 @@ final class Post extends Entity {
     /**
      * Get the value of idPost
      */ 
-    public function getIdPost()
+    public function getId()
     {
-        return $this->id_post;
+        return $this->id;
     }
 
     /**
@@ -27,9 +27,9 @@ final class Post extends Entity {
      *
      * @return  self
      */ 
-    public function setIdPost($id_post)
+    public function setId($id)
     {
-        $this->id_post = $id_post;
+        $this->id = $id;
 
         return $this;
     }

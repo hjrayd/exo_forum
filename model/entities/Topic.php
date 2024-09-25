@@ -9,7 +9,7 @@ use App\Entity;
 
 final class Topic extends Entity{
 
-    private  $id_topic;
+    private  $id;
     private  $titre;
     private $user;
     private $category;
@@ -23,8 +23,8 @@ final class Topic extends Entity{
     /**
      * Get the value of id
      */ 
-    public function getIdTopic(){
-        return $this->id_topic;
+    public function getId(){
+        return $this->id;
     }
 
     /**
@@ -32,8 +32,8 @@ final class Topic extends Entity{
      *
      * @return  self
      */ 
-    public function setIdTopic($id_topic){
-        $this->idTopic = $id_topic;
+    public function setId($id){
+        $this->id = $id;
         return $this;
     }
 
