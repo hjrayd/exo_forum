@@ -114,5 +114,10 @@ final class Post extends Entity {
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->texte;
+    }
+
 
 }
