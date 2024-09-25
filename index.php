@@ -64,3 +64,4 @@ else{
     /* j'affiche le template principal (layout) */
     include VIEW_DIR."layout.php";
 }
+

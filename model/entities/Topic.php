@@ -9,12 +9,12 @@ use App\Entity;
 
 final class Topic extends Entity{
 
-    private $id;
-    private $title;
+    private  $id_topic;
+    private  $titre;
     private $user;
     private $category;
-    private $creationDate;
-    private $closed;
+    private  $dateTopic;
+    private  $locked;
 
     public function __construct($data){         
         $this->hydrate($data);        
@@ -23,8 +23,8 @@ final class Topic extends Entity{
     /**
      * Get the value of id
      */ 
-    public function getId(){
-        return $this->id;
+    public function getIdTopic(){
+        return $this->id_topic;
     }
 
     /**
@@ -32,16 +32,16 @@ final class Topic extends Entity{
      *
      * @return  self
      */ 
-    public function setId($id){
-        $this->id = $id;
+    public function setIdTopic($id_topic){
+        $this->idTopic = $id_topic;
         return $this;
     }
 
     /**
      * Get the value of title
      */ 
-    public function getTitle(){
-        return $this->title;
+    public function getTitre(){
+        return $this->titre;
     }
 
     /**
@@ -49,8 +49,8 @@ final class Topic extends Entity{
      *
      * @return  self
      */ 
-    public function setTitle($title){
-        $this->title = $title;
+    public function setTitre($titre){
+        $this->titre = $titre;
         return $this;
     }
 
@@ -71,7 +71,70 @@ final class Topic extends Entity{
         return $this;
     }
 
-    public function __toString(){
-        return $this->title;
+    /**
+     * Get the value of category
+    */ 
+    public function getCategory()
+    {
+        return $this->category;
     }
+
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    
+
+    /**
+     * Get the value of locked
+     */ 
+    public function getLocked()
+    {
+        return $this->locked;
+    }
+
+    /**
+     * Set the value of locked
+     *
+     * @return  self
+     */ 
+    public function setLocked($locked)
+    {
+        $this->locked = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateTopic
+     */ 
+    public function getDateTopic()
+    {
+        return $this->dateTopic;
+    }
+
+    /**
+     * Set the value of dateTopic
+     *
+     * @return  self
+     */ 
+    public function setDateTopic($dateTopic)
+    {
+        $this->dateTopic = $dateTopic;
+
+        return $this;
+    }
+    public function __toString(){
+        return $this->titre;
+    }
+
+    
 }

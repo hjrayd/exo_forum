@@ -9,8 +9,13 @@ use App\Entity;
 
 final class User extends Entity{
 
-    private $id;
-    private $nickName;
+    private $id_user;
+    private $pseudo;
+    private $motDePasse;
+    private $dateInscription;
+    private $mail;
+    private $role;
+    private $blocked;
 
     public function __construct($data){         
         $this->hydrate($data);        
@@ -19,8 +24,8 @@ final class User extends Entity{
     /**
      * Get the value of id
      */ 
-    public function getId(){
-        return $this->id;
+    public function getIdUser(){
+        return $this->id_user;
     }
 
     /**
@@ -28,30 +33,121 @@ final class User extends Entity{
      *
      * @return  self
      */ 
-    public function setId($id){
-        $this->id = $id;
+    public function setIdUser($id_user){
+        $this->idUser = $id_user;
         return $this;
     }
 
     /**
-     * Get the value of nickName
+     * Get the value of pseudo
      */ 
-    public function getNickName(){
-        return $this->nickName;
+    public function getPseudo(){
+        return $this->pseudo;
     }
 
     /**
-     * Set the value of nickName
+     * Set the value of pseudo
      *
      * @return  self
      */ 
-    public function setNickName($nickName){
-        $this->nickName = $nickName;
+    public function setPseudo($pseudo){
+        $this->pseudo = $pseudo;
 
         return $this;
     }
 
-    public function __toString() {
-        return $this->nickName;
+     /**
+     * Get the value of motDePasse
+     */ 
+    public function getMotDePasse(){
+        return $this->motDePasse;
     }
+
+         /**
+     * Set the value of motDePasse
+     *
+     * @return  self
+     */ 
+    public function setMotDePasse($motDePasse){
+        $this->motDePasse = $motDePasse;
+
+        return $this;
+    }
+
+     /**
+     * Get the value of dateInscription
+     */ 
+    public function getDateInscription(){
+        return $this->dateInscription;
+    }
+
+         /**
+     * Set the value of dateInscription
+     *
+     * @return  self
+     */ 
+    public function setDateInscription($dateInscription){
+        $this->dateInscription = $dateInscription;
+
+        return $this;
+    }
+
+     /**
+     * Get the value of mail
+     */ 
+    public function getMail(){
+        return $this->mail;
+    }
+
+         /**
+     * Set the value of mail
+     *
+     * @return  self
+     */ 
+    public function setMail($mail){
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+         /**
+     * Get the value of role
+     */ 
+    public function getRole(){
+        return $this->role;
+    }
+
+         /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setRole($role){
+        $this->role = $role;
+
+        return $this;
+    }
+
+         /**
+     * Get the value of blocked
+     */ 
+    public function getBlocked(){
+        return $this->blocked;
+    }
+
+         /**
+     * Set the value of blocked
+     *
+     * @return  self
+     */ 
+    public function setLocked($blocked){
+        $this->blocked = $blocked;
+
+        return $this;
+    } 
+
+    public function __toString() {
+        return $this->pseudo;
+    }
+
 }

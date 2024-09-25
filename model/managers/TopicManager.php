@@ -18,13 +18,13 @@ class TopicManager extends Manager{
     public function findTopicsByCategory($id) {
 
         $sql = "SELECT * 
-                FROM ".$this->tableName." t 
-                WHERE t.category_id = :id";
+                FROM ".$this->tableName."  
+                WHERE id_category = :id";
        
         // la requête renvoie plusieurs enregistrements --> getMultipleResults
         return  $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]), 
-            $this->className
+            $this->tableName
         );
     }
 }
