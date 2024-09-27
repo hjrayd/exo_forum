@@ -19,7 +19,8 @@ class TopicManager extends Manager{
 
         $sql = "SELECT * 
                 FROM ".$this->tableName."  
-                WHERE category_id = :id";
+                WHERE category_id = :id
+                ORDER BY dateTopic DESC";
 
         // la requête renvoie plusieurs enregistrements --> getMultipleResults
         return  $this->getMultipleResults(

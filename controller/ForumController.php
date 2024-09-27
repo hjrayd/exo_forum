@@ -8,6 +8,7 @@ use Model\Managers\CategoryManager;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
 
+
 class ForumController extends AbstractController implements ControllerInterface{
 
     public function index() {
@@ -15,7 +16,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         // créer une nouvelle instance de CategoryManager
         $categoryManager = new CategoryManager();
         // récupérer la liste de toutes les catégories grâce à la méthode findAll de Manager.php (triés par nom)
-        $categories = $categoryManager->findAll(["nomCategory", "DESC"]);
+        $categories = $categoryManager->findAll(["nomCategory", ""]);
 
         // le controller communique avec la vue "listCategories" (view) pour lui envoyer la liste des catégories (data)
         return [

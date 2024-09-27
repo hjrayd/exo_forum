@@ -136,5 +136,5 @@ final class Topic extends Entity{
         return $this->titre;
     }
 
-    
+  
 }
