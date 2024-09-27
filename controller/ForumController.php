@@ -7,6 +7,7 @@ use App\ControllerInterface;
 use Model\Managers\CategoryManager;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
+use Model\Managers\UserManager;
 
 
 class ForumController extends AbstractController implements ControllerInterface{
@@ -64,6 +65,28 @@ class ForumController extends AbstractController implements ControllerInterface{
                 "posts" => $posts
             ]
         ];
+    }
+
+    public function addPost($id) {
+
+        $postManager = new PostManager();
+    
+      
+        $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        if($texte) {
+            $postManager->add([
+                "texte"=> $texte, 
+                "topic_id" => $id,
+                
+                "user_id" => 5
+            ]);
+
+      
+            $this->redirectTo("forum", "listPostsByTopics", $id);
+        } else {
+            $this->redirectTo("forum", "listPostsByTopics", $id);
+        }
+    
     }
 
   
