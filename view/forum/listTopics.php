@@ -14,7 +14,7 @@ foreach($topics as $topic ){ ?>
 
 <form action="index.php?ctrl=forum&action=addTopic&id=<?=$category->getId() ?>" method="POST">
     <label for="titre">Titre:</label><br>
-    <input type="texte" name="texte"><br>
+    <input type="titre" name="titre"><br>
     <textarea name="texte" id="texte" rows="4" cols="50">
     </textarea>
     <input type="submit" value="submit">
