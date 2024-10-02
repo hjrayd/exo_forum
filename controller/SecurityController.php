@@ -48,5 +48,10 @@ class SecurityController extends AbstractController{
             
     }
 }
-    public function logout () {}
+    public function logout () {
+        if(isset($_SESSION["user"])){
+        unset($_SESSION["user"]);
+        $this->redirectTo("security", "login"); 
+        }
+    }
 }
