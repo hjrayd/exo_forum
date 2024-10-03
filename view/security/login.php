@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-<div id="wrapper">
+
     <div class="form">
+        
     <form action="index.php?ctrl=security&action=login" method="post">
         <label for="email">Email</label>
         <input type="email" name="email" id="email"><br>
@@ -18,6 +19,6 @@
         <input type="submit" name="submit" value="Se connecter">
     </form>
     </div>
-</div>
+
 </body>
 </html>
