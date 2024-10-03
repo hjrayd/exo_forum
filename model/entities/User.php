@@ -59,8 +59,8 @@ final class User extends Entity{
      /**
      * Get the value of motDePasse
      */ 
-    public function getMotDePasse(){
-        return $this->motDePasse;
+    public function getPassword(){
+        return $this->password;
     }
 
          /**
@@ -68,8 +68,8 @@ final class User extends Entity{
      *
      * @return  self
      */ 
-    public function setMotDePasse($motDePasse){
-        $this->motDePasse = $motDePasse;
+    public function setPassword($password){
+        $this->password = $password;
 
         return $this;
     }
@@ -145,6 +145,10 @@ final class User extends Entity{
 
         return $this;
     } 
+
+    public function hasRole($role){
+        return $this->role === $role;
+    }
 
     public function __toString() {
         return $this->pseudo;

@@ -12,6 +12,7 @@ class SecurityController extends AbstractController{
 
         //fonction register
     public function register () {
+        $userManager = new UserManager();
         if(isset($_POST["submit"]))//faille XSS = on injecte du code malveillant dans une page web -> on filtre les champs du formulaire pour s'en prémunir 
         {
             $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -20,55 +21,55 @@ class SecurityController extends AbstractController{
             $pass2 = filter_input(INPUT_POST, "pass2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if($pseudo && $email && $pass1 && $pass2) {
-                $userManager = new UserManager();
+                
 
-                    
                 if($pass1==$pass2 && strlen($pass1)>= 5) {
                     $userManager->add([
                         "pseudo" => $pseudo,
-                        "email" => $email,
-                        "password" => password_hash($pass1, PASSWORD_DEFAULT)
+                        "password" => password_hash($pass1, PASSWORD_DEFAULT),
+                        "mail" => $email
+                        
                     ]);
                     $this->redirectTo("security", "login");
                 }
             }
         }
-
-        return [
-            "view" => VIEW_DIR."security/register.php",
-            "meta_description" => "Register page"
+            return [
+                "view" => VIEW_DIR."security/register.php",
+            "meta_description" => "S'enregistrer"
         ];
     }
 
     //fonction login
     public function login () {
+        $userManager = new UserManager();
+
         if(isset($_POST["submit"])) {
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
- 
-            if($email && $password) {
-                $userManager = new UserManager();
-               $user = $userManager -> findUser($email);
- 
-               if ($user) {
-                 $hash = $user->getPassword();
-                            if(password_verify($password, $hash)) {
-                                Session::setUser($user);
-                                $this->redirectTo("forum", "index");
-                            } else {
-                                $this->redirectTo("security", "login");
-                                }    
-                                  
-                            } else {
-                                $this->redirectTo("security", "login");
-                            }
-                            
-                            return [
-                                "view" => VIEW_DIR."security/login.php",
-                                "meta_description" => "Se connecter"
-                            ];
-                        }
-                     } 
+            
+            if($email && $password){
+                $user = $userManager->findUser($email);
+
+                if($user){
+                    $hash = $user->getPassword();
+                    if(password_verify($password, $hash)){
+                        Session::setUser($user);
+                        $this->redirectTo("forum", "index");
+                    } else {
+                        $this->redirectTo("security", "login");
+                    }
+                } else {
+                    $this->redirectTo("security", "login");
+                }
+            }
+            $this->redirectTo("security", "login");
+        }
+        return [
+            "view" => VIEW_DIR."security/login.php",
+            "meta_description" => "Log in page"
+        ];
+     
                 }
 
           //fonction logout

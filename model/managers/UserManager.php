@@ -14,14 +14,14 @@ class UserManager extends Manager{
         parent::connect();
     }
 
-    public function findUser($email) {
+    public function findUser($mail) {
 
         $sql = "SELECT *
         FROM user
-        WHERE email = :email";
+        WHERE mail = :mail";
 
 return  $this->getOneOrNullResult(
-    DAO::select($sql, ['email' => $email], false), 
+    DAO::select($sql, ['mail' => $mail], false), 
     $this->className);
     }
 }
