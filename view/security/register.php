@@ -21,6 +21,6 @@
         <input type="password" name="pass2" id="pass2"><br>
         
         <input type="submit" name="submit" values="S'enregistrer"><br>
-
+    </form>
 </body>
 </html>
