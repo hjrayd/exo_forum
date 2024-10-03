@@ -7,3 +7,28 @@
 h1 {
     color: rgb(0, 122, 156);
 }
+
+/*form*/
+
+#wrapper {
+   min-height: 100vh;
+    background-color: rgba(93, 128, 216, 0.6);
+    
+}
+
+.form  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:#fff;
+   
+
+}
+
+form {
+    background:rgba(0,0,0,0.13);
+    padding: 20px;
+   
+   
+}
