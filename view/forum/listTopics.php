@@ -7,12 +7,16 @@
 <h1>Liste des topics</h1>
 
 <?php
-foreach($topics as $topic ){ ?>
+foreach($topics as $topic ){ 
+    $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null;
+    ?>
+
      <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->getDateTopic() ?>)</p>
 <?php }
 
 ?>
 
+<?php if($userId) { ?>
 <form action="index.php?ctrl=forum&action=addTopic&id=<?=$category->getId() ?>" method="POST">
     <label for="titre">Titre:</label><br>
     <input type="titre" name="titre"><br>
@@ -20,3 +24,5 @@ foreach($topics as $topic ){ ?>
     </textarea>
     <input type="submit" value="submit">
 </form>
+<?php }
+?>

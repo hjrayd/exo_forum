@@ -105,7 +105,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if($titre && $texte) {
-            $newId = $topicManager->add([
+            $idTopic = $topicManager->add([
                 "titre"=> $titre,
                 "locked"=> 1,
                 "category_id" => $id,
@@ -114,7 +114,7 @@ class ForumController extends AbstractController implements ControllerInterface{
 
                 $postManager->add([
                     "texte"=> $texte, 
-                    "topic_id" => $newId,
+                    "topic_id" => $idTopic,
                     "user_id" =>  Session::getUser()->getId()
                 ]);
 
@@ -124,9 +124,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         }
     }
 
-
-  
-
+    
    
 }
  

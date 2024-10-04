@@ -29,7 +29,33 @@ class TopicManager extends Manager{
         );
     }
 
-    //liste des topics
+    //verrouiller un topic
+
+    public function lockTopic($id) {
+
+        $sql = "UPDATE topic
+        SET locked = 0
+        WHERE id_topic = :id";
+
+    return  $this->getMultipleResults(
+        DAO::select($sql, ['id' => $id]), 
+        $this->className
+    );
+
+    }
+
+    public function openTopic($id) {
+
+        $sql = "UPDATE topic
+        SET locked = 1
+        WHERE id_topic = :id";
+
+    return  $this->getMultipleResults(
+        DAO::select($sql, ['id' => $id]), 
+        $this->className
+    );
+
+    }
 
     
 }
