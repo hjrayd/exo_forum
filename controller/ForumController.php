@@ -130,6 +130,7 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         if ($topic) {
             $topicManager->closeTopic($id);
+            $etat = $topic -> getLocked();
 
                 $this->redirectTo("forum", "listTopicsByCategory", $id);
             } else {

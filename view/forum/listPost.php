@@ -17,7 +17,9 @@ foreach($posts as $post ){
     <?php }
     ?>
 
-<?php if($userId) { ?>
+<?php if ($topic->getLocked()) {
+    echo "Le topic est verrouillé"; } 
+    else if($userId) {  ?>
     <form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="POST">
         <textarea name="texte" id="texte" rows="4" cols="50">
         </textarea>

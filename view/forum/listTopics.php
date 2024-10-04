@@ -23,7 +23,8 @@ foreach($topics as $topic ){
 
 ?>
 
-<?php if($userId) { ?>
+<?php if($userId) { 
+     ?>
    
 <form action="index.php?ctrl=forum&action=addTopic&id=<?=$category->getId() ?>" method="POST">
     <label for="titre">Titre:</label><br>
