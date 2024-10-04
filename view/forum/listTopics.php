@@ -11,10 +11,11 @@ foreach($topics as $topic ){
     $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null; 
     $role = App\Session::getUser() ? App\Session::getUser()->getRole() : null; 
 
-    if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) {?>
+    if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) { if ($topic->getLocked()===0) {?>
     <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
+    <?php }  else { ?>
     <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
-<?php } 
+<?php } }
 
 ?>
 
