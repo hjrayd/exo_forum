@@ -107,7 +107,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         if($titre && $texte) {
             $idTopic = $topicManager->add([
                 "titre"=> $titre,
-                "locked"=> 1,
+                "locked"=> 0,
                 "category_id" => $id,
                 "user_id" =>  Session::getUser()->getId()
             ]);
@@ -124,7 +124,25 @@ class ForumController extends AbstractController implements ControllerInterface{
         }
     }
 
-    
-   
-}
+    public function lockTopic($id) {
+        $topicManager = new TopicManager();
+        $topic = $topicManager->findOneById();
+
+        if ($topic) {
+            if ($topic->getUser()->getId() === $userId || $role == "ROLE_ADMIN") {
+                $topicManager->closeTopic($id);
+
+                $this->redirectTo("forum", "listTopicsByCategory", $id);
+            } else {
+                echo "Vous ne pouvez pas verrouiler ce topic";
+            } 
+        } 
+
+    }
+
+ 
+    }
+
+
+
  

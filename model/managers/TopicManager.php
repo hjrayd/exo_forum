@@ -31,14 +31,14 @@ class TopicManager extends Manager{
 
     //verrouiller un topic
 
-    public function lockTopic($id) {
+    public function closeTopic($id) {
 
         $sql = "UPDATE topic
-        SET locked = 0
+        SET locked = 1
         WHERE id_topic = :id";
 
     return  $this->getMultipleResults(
-        DAO::select($sql, ['id' => $id]), 
+        DAO::update($sql, ['id' => $id]), 
         $this->className
     );
 
@@ -47,15 +47,25 @@ class TopicManager extends Manager{
     public function openTopic($id) {
 
         $sql = "UPDATE topic
-        SET locked = 1
+        SET locked = 0
         WHERE id_topic = :id";
 
     return  $this->getMultipleResults(
-        DAO::select($sql, ['id' => $id]), 
-        $this->className
+        DAO::update($sql, ['id' => $id]), 
+       
     );
 
     }
 
-    
+    public function deleteTopic($id) {
+
+            $sql = "DELETE topic
+            WHERE id_topic = :id";
+
+    return  $this->getMultipleResults(
+        DAO::delete($sql, ['id' => $id]), 
+ 
+    );
+    }
+
 }

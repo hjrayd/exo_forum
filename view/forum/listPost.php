@@ -12,8 +12,6 @@ foreach($posts as $post ){
     $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null;
     ?>
 
-
-
     <p><?= $post->getUser() ?> : <?= $post->getTexte() ?> (<?= $post->getDatePost() ?>)</p> <br>
         
     <?php }

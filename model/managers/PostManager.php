@@ -26,6 +26,17 @@ class PostManager extends Manager {
            
         );
     }
+
+    public function deletePost($id) {
+
+        $sql = "DELETE post
+        WHERE id_post = :id";
+
+    return  $this->getMultipleResults(
+        DAO::select($sql, ['id' => $id]), 
+        $this->className
+    );
+    }
    
 }
 
