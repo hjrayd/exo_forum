@@ -37,7 +37,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         $category = $categoryManager->findOneById($id);
         
         $topics = $topicManager->findTopicsByCategory($id);
-
+        if($topics) {
         return [
             "view" => VIEW_DIR."forum/listTopics.php",
             "meta_description" => "Liste des topics par catégorie : ".$category,
@@ -46,6 +46,9 @@ class ForumController extends AbstractController implements ControllerInterface{
                 "topics" => $topics
             ]
         ];
+    } else {
+        $this->redirectTo("forum", "index");
+    }
     }
 
 
@@ -57,7 +60,7 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         $posts = $postManager->findPostsByTopics($id);
       
-        
+        if($posts){
         return [
             "view" => VIEW_DIR."forum/listPost.php",
             "meta_description" => "Liste des post par topics : ".$topic,
@@ -66,6 +69,9 @@ class ForumController extends AbstractController implements ControllerInterface{
                 "posts" => $posts
             ]
         ];
+    } else {
+        $this->redirectTo("forum", "index");
+    }
     }
 
     public function addPost($id) {
@@ -116,6 +122,7 @@ class ForumController extends AbstractController implements ControllerInterface{
             $this->redirectTo("forum", "listTopicsByCategory", $id);
         }
     }
+
 
   
 

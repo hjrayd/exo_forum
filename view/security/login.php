@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-
+    
+    <h1>Se connecter</h1>
     <div class="form">
         
     <form action="index.php?ctrl=security&action=login" method="post">
@@ -16,7 +17,9 @@
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password">
 
-        <input type="submit" name="submit" value="Se connecter">
+        <div class="submit">
+        <input type="submit" name="submit" id="submit" value="Se connecter">
+    </div>
     </form>
     </div>
 
