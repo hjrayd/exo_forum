@@ -4,7 +4,7 @@
 
 ?>
 
-<h1>Liste des Posts</h1> <bR>
+<h1><?=$topic->getTitre()?></h1> <bR>
 <?php
 
 foreach($posts as $post ){ ?>

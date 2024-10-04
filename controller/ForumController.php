@@ -56,14 +56,15 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         $topicManager = new TopicManager();
         $postManager = new PostManager();
-        $topic = $topicManager->findOneById($id);
+     
 
+        $topic = $topicManager->findOneById($id);
         $posts = $postManager->findPostsByTopics($id);
       
-        if($posts){
+        if($topic){
         return [
             "view" => VIEW_DIR."forum/listPost.php",
-            "meta_description" => "Liste des post par topics : ".$topic,
+            "meta_description" => "Liste des post par topics : ",
             "data" => [
                 "topic" => $topic,
                 "posts" => $posts
@@ -77,18 +78,18 @@ class ForumController extends AbstractController implements ControllerInterface{
     public function addPost($id) {
 
         $postManager = new PostManager();
-    
+      
       
         $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if($texte) {
             $postManager->add([
                 "texte"=> $texte, 
                 "topic_id" => $id,
-                
-                "user_id" => 5
+                "user_id" => Session::getUser()->getId()
             ]);
 
-      
+     
+          
             $this->redirectTo("forum", "listPostsByTopics", $id);
         } else {
             $this->redirectTo("forum", "listPostsByTopics", $id);
@@ -105,16 +106,16 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         if($titre && $texte) {
             $newId = $topicManager->add([
-                "titre"=> $titre, 
-                "category_id" => $id,
+                "titre"=> $titre,
                 "locked"=> 1,
-                "user_id" => 5
+                "category_id" => $id,
+                "user_id" =>  Session::getUser()->getId()
             ]);
 
                 $postManager->add([
                     "texte"=> $texte, 
                     "topic_id" => $newId,
-                    "user_id" => 5
+                    "user_id" =>  Session::getUser()->getId()
                 ]);
 
                 $this->redirectTo("forum", "listTopicsByCategory", $id);

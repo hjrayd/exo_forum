@@ -1,6 +1,7 @@
 <?php
     $category = $result["data"]['category']; 
     $topics = $result["data"]['topics']; 
+    $user = App\Session::getUser();
 ?>
 
 <h1>Liste des topics</h1>
