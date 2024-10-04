@@ -11,7 +11,7 @@ final class User extends Entity{
 
     private $id;
     private $pseudo;
-    private $motDePasse;
+    private $password;
     private $dateInscription;
     private $mail;
     private $role;

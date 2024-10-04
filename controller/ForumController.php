@@ -126,22 +126,35 @@ class ForumController extends AbstractController implements ControllerInterface{
 
     public function lockTopic($id) {
         $topicManager = new TopicManager();
-        $topic = $topicManager->findOneById();
+        $topic = $topicManager->findOneById($id);
 
         if ($topic) {
-            if ($topic->getUser()->getId() === $userId || $role == "ROLE_ADMIN") {
-                $topicManager->closeTopic($id);
+            $topicManager->closeTopic($id);
 
                 $this->redirectTo("forum", "listTopicsByCategory", $id);
             } else {
-                echo "Vous ne pouvez pas verrouiler ce topic";
+                echo "Vous ne pouvez pas verrouiller ce topic";
+            } 
+        } 
+
+    
+
+    public function unlockedTopic($id) {
+        $topicManager = new TopicManager();
+        $topic = $topicManager->findOneById($id);
+
+        if ($topic) {
+            $topicManager->openTopic($id);
+
+                $this->redirectTo("forum", "listTopicsByCategory", $id);
+            } else {
+                echo "Vous ne pouvez pas verrouiller ce topic";
             } 
         } 
 
     }
 
- 
-    }
+    
 
 
 

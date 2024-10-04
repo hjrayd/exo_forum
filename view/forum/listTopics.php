@@ -12,8 +12,10 @@ foreach($topics as $topic ){
     $role = App\Session::getUser() ? App\Session::getUser()->getRole() : null; 
 
     if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) {?>
-    <p><a href="index.php?ctrl=forum&action=closeTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
+    <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
+    <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
 <?php } 
+
 ?>
 
      <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->getDateTopic() ?>)</p>

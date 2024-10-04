@@ -37,11 +37,8 @@ class TopicManager extends Manager{
         SET locked = 1
         WHERE id_topic = :id";
 
-    return  $this->getMultipleResults(
-        DAO::update($sql, ['id' => $id]), 
-        $this->className
-    );
-
+        DAO::update($sql, ['id' => $id]);
+      
     }
 
     public function openTopic($id) {
@@ -49,11 +46,8 @@ class TopicManager extends Manager{
         $sql = "UPDATE topic
         SET locked = 0
         WHERE id_topic = :id";
+        DAO::update($sql, ['id' => $id]);
 
-    return  $this->getMultipleResults(
-        DAO::update($sql, ['id' => $id]), 
-       
-    );
 
     }
 
