@@ -166,9 +166,22 @@ class ForumController extends AbstractController implements ControllerInterface{
         
                         $this->redirectTo("forum", "listTopicsByCategory", $id);
                     } else {
-                        echo "Vous ne pouvez pas supprimer ce post";
+                        echo "Vous ne pouvez pas supprimer ce topic";
                     } 
                 } 
+
+                public function deletePost($id) {
+                    $postManager = new PostManager();
+                    $post = $postManager->findOneById($id);
+            
+                    if ($post) {
+                        $postManager->suppPost($id);
+
+                            $this->redirectTo("forum", "listTopicsByCategory", $id);
+                        } else {
+                            echo "Vous ne pouvez pas supprimer ce post";
+                        } 
+                    } 
 
     }
 
