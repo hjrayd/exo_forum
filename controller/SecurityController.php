@@ -27,7 +27,8 @@ class SecurityController extends AbstractController{
                     $userManager->add([
                         "pseudo" => $pseudo,
                         "password" => password_hash($pass1, PASSWORD_DEFAULT),
-                        "mail" => $email
+                        "mail" => $email,
+                        "role" => "User"
                         
                     ]);
                     $this->redirectTo("security", "login");

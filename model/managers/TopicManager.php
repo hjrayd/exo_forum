@@ -51,15 +51,12 @@ class TopicManager extends Manager{
 
     }
 
-    public function deleteTopic($id) {
+    public function suppTopic($id) {
 
-            $sql = "DELETE topic
+            $sql = "DELETE  FROM topic
             WHERE id_topic = :id";
+            DAO::delete($sql, ['id' => $id]);
 
-    return  $this->getMultipleResults(
-        DAO::delete($sql, ['id' => $id]), 
- 
-    );
     }
 
 }

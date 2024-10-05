@@ -27,15 +27,11 @@ class PostManager extends Manager {
         );
     }
 
-    public function deletePost($id) {
+    public function suppPost($id) {
 
-        $sql = "DELETE post
-        WHERE id_post = :id";
-
-    return  $this->getMultipleResults(
-        DAO::select($sql, ['id' => $id]), 
-        $this->className
-    );
+        $sql = "DELETE FROM post
+        WHERE topic_id = :id";
+        DAO::delete($sql, ['id' => $id]);
     }
    
 }

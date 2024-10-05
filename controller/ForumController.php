@@ -153,6 +153,23 @@ class ForumController extends AbstractController implements ControllerInterface{
             } 
         } 
 
+
+
+            public function deleteTopic($id) {
+                $topicManager = new TopicManager();
+                $postManager = new PostManager();
+                $topic = $topicManager->findOneById($id);
+        
+                if ($topic) {
+                    $postManager->suppPost($id);
+                    $topicManager ->suppTopic($id);
+        
+                        $this->redirectTo("forum", "listTopicsByCategory", $id);
+                    } else {
+                        echo "Vous ne pouvez pas supprimer ce post";
+                    } 
+                } 
+
     }
 
     
