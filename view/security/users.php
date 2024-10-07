@@ -11,8 +11,8 @@
 <ul>
 
     <?php 
-$role = App\Session::getUser() ? App\Session::getUser()->getRole() : null; 
-    if ($user->getRole()==="ROLE_ADMIN") {
+
+
     foreach($users as $user) { 
             if($user->getRole()==="User") { ?>
        
@@ -23,6 +23,6 @@ $role = App\Session::getUser() ? App\Session::getUser()->getRole() : null;
             else if($user->getBan()=== 1) { ?> <p><a href="index.php?ctrl=forum&action=debanUser&id=<?= $user->getId() ?>">Deban l'utilisateur</a></p> <?php } 
          }
         }
-    }
+    
 
     ?>

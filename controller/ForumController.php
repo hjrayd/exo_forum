@@ -133,7 +133,7 @@ class ForumController extends AbstractController implements ControllerInterface{
             $topicManager->closeTopic($id);
            
 
-                $this->redirectTo("forum", "listTopicsByCategory");
+                $this->redirectTo("forum", "listTopicsByCategory", $id);
             } else {
                 echo "Vous ne pouvez pas verrouiller ce topic";
             } 
@@ -148,7 +148,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         if ($topic) {
             $topicManager->openTopic($id);
 
-                $this->redirectTo("forum", "listTopicsByCategory");
+                $this->redirectTo("forum", "listTopicsByCategory", $id);
             } else {
                 echo "Vous ne pouvez pas verrouiller ce topic";
             } 
@@ -165,7 +165,7 @@ class ForumController extends AbstractController implements ControllerInterface{
                     $postManager->suppAllPost($id);
                     $topicManager ->suppTopic($id);
         
-                        $this->redirectTo("forum", "listTopicsByCategory");
+                        $this->redirectTo("forum", "listTopicsByCategory", $id);
                     } else {
                         echo "Vous ne pouvez pas supprimer ce topic";
                     } 
@@ -178,7 +178,7 @@ class ForumController extends AbstractController implements ControllerInterface{
                     if ($post) {
                         $postManager->suppPost($id);
 
-                            $this->redirectTo("forum", "listTopicsByCategory", $id);
+                            $this->redirectTo("forum", "listPostsByTopics", $id);
                         } else {
                             echo "Vous ne pouvez pas supprimer ce post";
                         } 
