@@ -24,4 +24,24 @@ return  $this->getOneOrNullResult(
     DAO::select($sql, ['mail' => $mail], false), 
     $this->className);
     }
+
+    public function ban ($id) {
+
+        $sql = "UPDATE user
+        SET ban = 1
+        WHERE id_user = :id";
+
+        DAO::update($sql, ['id' => $id]);
+      
+    }
+
+    public function deban ($id) {
+
+        $sql = "UPDATE user
+        SET ban = 0
+        WHERE id_user = :id";
+        DAO::update($sql, ['id' => $id]);
+
+
+    }
 }

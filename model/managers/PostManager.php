@@ -30,7 +30,7 @@ class PostManager extends Manager {
     public function suppPost($id) {
 
         $sql = "DELETE FROM post
-        WHERE topic_id = :id";
+        WHERE id_post = :id";
         DAO::delete($sql, ['id' => $id]);
     }
    

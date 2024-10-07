@@ -1,13 +1,17 @@
 <?php
     $topic = $result["data"]['topic']; 
     $posts = $result["data"]['posts'];
-    
+    $user = App\Session::getUser();
+    $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null;
+    $role = App\Session::getUser() ? App\Session::getUser()->getRole() : null;  
+    $ban = App\Session::getUser() ? App\Session::getUser()->getBan() : null;  
 
 ?>
 
 <h1><?=$topic->getTitre()?></h1> <bR>
 <?php
 
+if ($posts) {
 foreach($posts as $post ){
     $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null; 
     if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) {
@@ -16,15 +20,24 @@ foreach($posts as $post ){
 
     <p><?= $post->getUser() ?> : <?= $post->getTexte() ?> (<?= $post->getDatePost() ?>)</p> <br>
         
-    <?php }
-    ?>
+    <?php } 
+} else {
+    echo"Pas de post"; 
+}
+
+    ?> <br>
 
 <?php if ($topic->getLocked()) {
     echo "Le topic est verrouillé"; } 
+    else if ($ban === 1) {
+        echo "Vous êtes banni";
+    } 
     else if($userId) {  ?>
     <form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="POST">
         <textarea name="texte" id="texte" rows="4" cols="50">
         </textarea>
             <input type="submit" value="poster">
-    </form> <br>
-<?php } ?>
+    </form> <br> 
+    <?php } 
+   
+  ?>

@@ -37,7 +37,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         $category = $categoryManager->findOneById($id);
         
         $topics = $topicManager->findTopicsByCategory($id);
-        if($topics) {
+        if($category) {
         return [
             "view" => VIEW_DIR."forum/listTopics.php",
             "meta_description" => "Liste des topics par catégorie : ".$category,
@@ -48,6 +48,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         ];
     } else {
         $this->redirectTo("forum", "index");
+    
     }
     }
 
@@ -130,9 +131,9 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         if ($topic) {
             $topicManager->closeTopic($id);
-            $etat = $topic -> getLocked();
+           
 
-                $this->redirectTo("forum", "listTopicsByCategory", $id);
+                $this->redirectTo("forum", "listTopicsByCategory");
             } else {
                 echo "Vous ne pouvez pas verrouiller ce topic";
             } 
@@ -147,7 +148,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         if ($topic) {
             $topicManager->openTopic($id);
 
-                $this->redirectTo("forum", "listTopicsByCategory", $id);
+                $this->redirectTo("forum", "listTopicsByCategory");
             } else {
                 echo "Vous ne pouvez pas verrouiller ce topic";
             } 
@@ -164,7 +165,7 @@ class ForumController extends AbstractController implements ControllerInterface{
                     $postManager->suppPost($id);
                     $topicManager ->suppTopic($id);
         
-                        $this->redirectTo("forum", "listTopicsByCategory", $id);
+                        $this->redirectTo("forum", "listTopicsByCategory");
                     } else {
                         echo "Vous ne pouvez pas supprimer ce topic";
                     } 
@@ -182,6 +183,34 @@ class ForumController extends AbstractController implements ControllerInterface{
                             echo "Vous ne pouvez pas supprimer ce post";
                         } 
                     } 
+
+                    public function banUser($id) {
+                        $userManager = new UserManager();
+                        $user = $userManager->findOneById($id);
+                
+                        if ($user) {
+                            $userManager->ban($id);
+                          
+                
+                            $this->redirectTo("home", "users");
+                            } else {
+                                echo "L'utilisateur n'a pas pu être banni";
+                            }
+                        } 
+                
+                    public function debanUser($id) {
+                        $userManager = new UserManager();
+                        $user = $userManager->findOneById($id);
+                
+                        if ($user) {
+                            $userManager->deban($id);
+                           
+                
+                            $this->redirectTo("home", "users");
+                            } else {
+                                echo "L'utilisateur n'a pas pu être debanni";
+                            } 
+                        } 
 
     }
 

@@ -15,7 +15,7 @@ final class User extends Entity{
     private $dateInscription;
     private $mail;
     private $role;
-    private $blocked;
+    private $ban;
 
     public function __construct($data){         
         $this->hydrate($data);        
@@ -131,9 +131,21 @@ final class User extends Entity{
          /**
      * Get the value of blocked
      */ 
-    public function getBlocked(){
-        return $this->blocked;
+    public function getBan(){
+        return $this->ban;
     }
+
+    /**
+         * Set the value of ban
+         *
+         * @return  self
+         */ 
+        public function setBan($ban)
+        {
+            $this->ban = $ban;
+
+            return $this;
+        }
 
          /**
      * Set the value of blocked
@@ -154,4 +166,6 @@ final class User extends Entity{
         return $this->pseudo;
     }
 
+
+   
 }
