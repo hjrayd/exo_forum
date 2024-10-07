@@ -13,11 +13,9 @@
 
 if ($posts) {
 foreach($posts as $post ){
-    $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null; 
-    if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) {
-        ?> <p><a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a></p> <?php 
+    if($userId && ($post->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) { ?>
+        <p><a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a></p> <?php
     } ?>
-
     <p><?= $post->getUser() ?> : <?= $post->getTexte() ?> (<?= $post->getDatePost() ?>)</p> <br>
         
     <?php } 

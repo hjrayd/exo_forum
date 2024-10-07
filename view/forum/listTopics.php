@@ -16,7 +16,7 @@
             ?> <p><a href="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>">Supprimer le topic</a></p> <?php 
             { if ($topic->getLocked()===0) {?>
             <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
-            <?php }  else { ?>
+            <?php }  else if ($topic->getLocked()===1) { ?>
             <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
             
         <?php } 
@@ -24,7 +24,6 @@
     }  
 }
     ?>
-
      <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->getDateTopic() ?>)</p>
 <?php } else {
     echo "Pas de topics";

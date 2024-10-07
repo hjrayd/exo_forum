@@ -162,7 +162,7 @@ class ForumController extends AbstractController implements ControllerInterface{
                 $topic = $topicManager->findOneById($id);
         
                 if ($topic) {
-                    $postManager->suppPost($id);
+                    $postManager->suppAllPost($id);
                     $topicManager ->suppTopic($id);
         
                         $this->redirectTo("forum", "listTopicsByCategory");
