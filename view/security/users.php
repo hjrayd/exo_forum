@@ -11,9 +11,9 @@
 <ul>
 
     <?php 
-     
+
     foreach($users as $user) { 
-            if($user->getRole()==="User") { ?>
+            if($user->getRole()==="ROLE_USER") { ?>
        
         <p>Pseudo : <?= $user->getPseudo()?></p>
         <p> Date d'inscription : <?= $user->getDateInscription()?></p> <br>
