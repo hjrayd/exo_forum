@@ -3,6 +3,7 @@ namespace Controller;
 
 use App\AbstractController;
 use App\ControllerInterface;
+use Model\Managers\TopicManager;
 use App\Manager;
 use App\Session;
 use Model\Managers\UserManager;
@@ -80,6 +81,23 @@ class SecurityController extends AbstractController{
             $this->redirectTo("security", "login"); 
             }
         
+    }
+
+    public function profile(){
+        $userManager = new UserManager();
+        $topicManager = new TopicManager();
+
+        //on récupère l'id a travers la session sinon risque de changer l'id dans l'url 
+        $id = Session::getUser()->getId();
+        $topics = $topicManager->listTopicsByUser($id);
+
+        return [
+            "view" => VIEW_DIR."security/profile.php",
+            "meta_description" => "Mon profil",
+            "data" => [ 
+                "topics" => $topics 
+            ]
+        ];
     }
 }
 

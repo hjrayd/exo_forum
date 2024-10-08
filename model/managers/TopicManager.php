@@ -29,6 +29,25 @@ class TopicManager extends Manager{
         );
     }
 
+      // récupérer tous les topics d'un user 
+      public function listTopicsByUser($id) {
+
+        $sql = "SELECT * 
+                FROM ".$this->tableName."  
+                WHERE user_id = :id
+                ORDER BY dateTopic DESC";
+
+        // la requête renvoie plusieurs enregistrements --> getMultipleResults
+        return  $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id]), 
+            $this->className
+        );
+    }
+
+
+
+    
+
     //verrouiller un topic
 
     public function closeTopic($id) {
