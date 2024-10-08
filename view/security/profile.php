@@ -18,6 +18,6 @@ Mes topics: <br>
         </ul>
          <?php } ?>
 
-<a href="index.php?ctrl=forum&action=deleteProfile&id=<?= $user->getId() ?>">Supprimer mon profil</a></p> <?php
+<a href="index.php?ctrl=security&action=deleteProfile&id=<?= $user->getId() ?>">Supprimer mon profil</a></p> <?php
         //var_dump($topics);die;
     ?>

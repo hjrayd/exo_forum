@@ -103,15 +103,12 @@ class SecurityController extends AbstractController{
     public function deleteProfile() {
        $userManager = new UserManager();
        $id = Session::getUser()->getId();
-
-        if ($user) {
-            $userManager->deleteProfile($id);
-        
-                $this->redirectTo("forum", "index");
-            } else {
-                echo "Erreur lors de la suppression";
+        $userManager->deletePostTopicUser($id);
+        $userManager->deleteProfile($id);
+     
+                $this->redirectTo("security", "logout");
             } 
-        } 
+
 }
 
 //pq bcrypt est un algo fort = il utilise le salt + le cout + le mdp hash donc plus long

@@ -40,6 +40,8 @@ class PostManager extends Manager {
         WHERE topic_id = :id";
         DAO::delete($sql, ['id' => $id]);
     }
+
+  
    
 }
 

@@ -46,9 +46,22 @@ return  $this->getOneOrNullResult(
     }
 
     public function deleteProfile($id) {
-        $sql = "DELETE user
+        $sql = "DELETE FROM user
         WHERE id_user = :id";
 
-        DAO::update($sql, ['id' => $id]);
+        DAO::delete($sql, ['id' => $id]);
     }
+
+    public function deletePostTopicUser($id) {
+        $sql = "DELETE FROM post
+        WHERE user_id = :id";
+         DAO::delete($sql, ['id' => $id]);
+
+         $sql = "DELETE FROM topic
+        WHERE user_id = :id";
+         DAO::delete($sql, ['id' => $id]);
+
+
+    }
+   
 }
