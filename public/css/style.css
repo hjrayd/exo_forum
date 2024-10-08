@@ -12,7 +12,7 @@ a {
 }
 
 a:visited {
- color: #fff;
+  color: #fff;
 }
 
 h1 {
@@ -36,8 +36,6 @@ nav {
 #nav-right {
   padding-right: 30px;
 }
-
-
 
 
 #nav-right a {
@@ -65,15 +63,14 @@ form {
     background:rgba(0,0,0,0.13);
     padding-left: 20px;
     padding-right: 20px;
-  padding-top: 70px;
-  padding-bottom: 70px;
-  border-radius: 20px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    border-radius: 20px;
 
 }
 
 label{
     display: inline-block;
-   
     width: 250px;
     text-align: left;
 }
@@ -101,4 +98,15 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) { 
+ nav {
+  display: flex;
+
+ }
+
+#nav-left {
+  padding-right: 10px;
+}
 }
