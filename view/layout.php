@@ -19,7 +19,7 @@
                 <header>
                     <nav>
                         <div id="nav-left">
-                            <a href="/">Accueil</a>
+                            <a href="index.php?ctrl=forum&action=index">Accueil</a>
                             <?php
                             if(App\Session::isAdmin()){
                                 ?>

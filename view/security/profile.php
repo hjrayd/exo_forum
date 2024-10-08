@@ -16,7 +16,8 @@ Mes topics: <br>
         <ul>
             <li> <?= $topic->getTitre() ?> </li>
         </ul>
-         <?php } 
+         <?php } ?>
 
+<a href="index.php?ctrl=forum&action=deleteProfile&id=<?= $user->getId() ?>">Supprimer mon profil</a></p> <?php
         //var_dump($topics);die;
     ?>

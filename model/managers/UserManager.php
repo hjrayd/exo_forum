@@ -44,4 +44,11 @@ return  $this->getOneOrNullResult(
 
 
     }
+
+    public function deleteProfile($id) {
+        $sql = "DELETE user
+        WHERE id_user = :id";
+
+        DAO::update($sql, ['id' => $id]);
+    }
 }
