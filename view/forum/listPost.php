@@ -7,6 +7,7 @@
     $ban = App\Session::getUser() ? App\Session::getUser()->getBan() : null;  
 
 ?>
+<div id="wrapper-post">
 
 <h1><?=$topic->getTitre()?></h1> <bR>
 <?php
@@ -39,3 +40,4 @@ foreach($posts as $post ){
     <?php } 
    
   ?>
+  </div>

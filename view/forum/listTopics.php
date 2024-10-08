@@ -24,10 +24,10 @@
                         { if ($topic->getLocked()===0) {?>
                         <div class="lock-btn">
                             <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
-                        </div>
-                        <?php } if ($topic->getLocked()===1) { ?>
-                        <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
-                 
+                            </div>
+                            <?php } if ($topic->getLocked()===1) { ?>
+                            <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
+                        
             <?php } 
             } 
         }  ?>
