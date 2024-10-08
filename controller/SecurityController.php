@@ -14,6 +14,8 @@ class SecurityController extends AbstractController{
         //fonction register
     public function register () {
         $userManager = new UserManager();
+        $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/';
+
         if(isset($_POST["submit"]))//faille XSS = on injecte du code malveillant dans une page web -> on filtre les champs du formulaire pour s'en prémunir 
         {
             $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -24,7 +26,7 @@ class SecurityController extends AbstractController{
             if($pseudo && $email && $pass1 && $pass2) {
                 
 
-                if($pass1==$pass2 && strlen($pass1)>= 5) {
+                if($pass1==$pass2 && preg_match($pattern , $pass1)) {
                     $userManager->add([
                         "pseudo" => $pseudo,
                         "password" => password_hash($pass1, PASSWORD_DEFAULT),

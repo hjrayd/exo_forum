@@ -10,13 +10,13 @@ Mon profil: <br>
 
 Mes topics: <br>
 
-   
-        <?php
+   <?php if($topics) {
+      
         foreach ($topics as $topic) { ?>
         <ul>
             <li> <?= $topic->getTitre() ?> </li>
         </ul>
-         <?php } ?>
+         <?php } }?>
 
 <a href="index.php?ctrl=security&action=deleteProfile&id=<?= $user->getId() ?>">Supprimer mon profil</a></p> <?php
         //var_dump($topics);die;
