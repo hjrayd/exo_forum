@@ -163,7 +163,13 @@ input {
  nav a {
   font-size: 14px;
  }
-#nav-left {
-  padding-right: 10px;
-}
+
+ form  {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+ }
+
+
+
 }
