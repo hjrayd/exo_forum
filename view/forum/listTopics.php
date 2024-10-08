@@ -22,7 +22,7 @@
         <?php } 
         } 
     }  ?>
-    <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->getDateTopic() ?>)</p>
+    <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->formatDateTopic() ?>)</p>
 <?php } ?>
      
 <?php } else {

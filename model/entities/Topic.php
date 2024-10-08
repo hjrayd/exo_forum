@@ -136,5 +136,10 @@ final class Topic extends Entity{
         return $this->titre;
     }
 
+    public function formatDateTopic($format = 'd/m/Y  H:i:s') {
+        $dateTime = new \DateTime($this->dateTopic);
+        return $dateTime->format($format);
+    }
+
   
 }

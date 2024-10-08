@@ -16,7 +16,7 @@ foreach($posts as $post ){
     if($userId && ($post->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) { ?>
         <p><a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a></p> <?php
     } ?>
-    <p><?= $post->getUser() ?> : <?= $post->getTexte() ?> (<?= $post->getDatePost() ?>)</p> <br>
+    <p><?= $post->getUser() ?> : <?= $post->getTexte() ?> (<?= $post->formatDatePost() ?>)</p> <br>
         
     <?php } 
 } else {

@@ -169,5 +169,8 @@ final class User extends Entity{
     }
 
 
-   
+    public function formatDateInscription($format = 'd/m/Y') {
+        $dateTime = new \DateTime($this->dateInscription);
+        return $dateTime->format($format);
+    }
 }

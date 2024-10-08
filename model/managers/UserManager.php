@@ -53,15 +53,18 @@ return  $this->getOneOrNullResult(
     }
 
     public function deletePostTopicUser($id) {
-        $sql = "DELETE FROM post
+        $sql = "UPDATE  post
+        SET user_id = null;
         WHERE user_id = :id";
+        
          DAO::delete($sql, ['id' => $id]);
 
-         $sql = "DELETE FROM topic
-        WHERE user_id = :id";
-         DAO::delete($sql, ['id' => $id]);
-
-
+         $sql = "UPDATE  topic
+         SET user_id = null;
+         WHERE user_id = :id";
+         
+          DAO::delete($sql, ['id' => $id]);
     }
+    
    
 }

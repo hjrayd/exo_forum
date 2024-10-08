@@ -119,5 +119,10 @@ final class Post extends Entity {
         return $this->texte;
     }
 
+    public function formatDatePost($format = 'd/m/Y H:i:s') {
+        $dateTime = new \DateTime($this->datePost);
+        return $dateTime->format($format);
+    }
+
 
 }

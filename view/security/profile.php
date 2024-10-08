@@ -6,7 +6,7 @@
 
 Mon profil: <br>
     Pseudo :  <?=  App\Session::getUser()->getPseudo() ?> <br>
-    Date d'inscription :  <?=  App\Session::getUser()->getDateInscription() ?> <br>
+    Date d'inscription :  <?=  App\Session::getUser()->formatDateInscription() ?> <br>
 
 Mes topics: <br>
 

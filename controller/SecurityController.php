@@ -14,6 +14,7 @@ class SecurityController extends AbstractController{
         //fonction register
     public function register () {
         $userManager = new UserManager();
+        //regex = au moins une majuscule, une minuscule, minimum 8 caracteres, un chiffre et un caractere special
         $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/';
 
         if(isset($_POST["submit"]))//faille XSS = on injecte du code malveillant dans une page web -> on filtre les champs du formulaire pour s'en prémunir 
@@ -107,8 +108,8 @@ class SecurityController extends AbstractController{
        $id = Session::getUser()->getId();
         $userManager->deletePostTopicUser($id);
         $userManager->deleteProfile($id);
-     
-                $this->redirectTo("security", "logout");
+        //var_dump($id);die;->on récupère bien le bon $id
+        $this->redirectTo("security", "logout");
             } 
 
 }
