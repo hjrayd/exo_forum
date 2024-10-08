@@ -1,4 +1,10 @@
-* {
+/* 
+=================================================================
+========================= LAYOUT== ================================
+=================================================================
+ */
+ 
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,6 +17,14 @@ a {
 
 }
 
+
+#mainpage {
+  min-height: 100vh;
+  background-color:rgba(93,128,216,0.6);
+   
+}
+
+
 a:visited {
   color: #fff;
 }
@@ -20,6 +34,12 @@ h1 {
     text-align: center;
     margin-top: 30px;
 }
+
+/* 
+=================================================================
+========================= FORM== ================================
+=================================================================
+ */
 
 
 nav {
@@ -41,13 +61,9 @@ nav {
 #nav-right a {
     margin-right: 10px;
 }
-/*form*/
 
-#mainpage {
-   min-height: 100vh;
-   background-color:rgba(93,128,216,0.6);
-    
-}
+
+
 
 .form  {
     display: flex;
@@ -100,12 +116,53 @@ input {
   align-items: center;
 }
 
+
+/* 
+=================================================================
+========================= HOMEPAGE== ================================
+=================================================================
+ */
+
+ nav {
+  background-color: rgba(93,128,216,0.6);
+  padding-bottom: 20px;
+ }
+
+ #forum h1 {
+  padding-bottom: 50px;
+ }
+
+ #forum a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+  font-size: 30px;
+ }
+
+ #forum a:hover {
+  text-decoration: underline;
+ }
+
+
+
+
+
+/* 
+=================================================================
+========================= RESPONSIVE== ================================
+=================================================================
+ */
 @media screen and (max-width: 768px) { 
  nav {
   display: flex;
+  padding-left: auto;
 
  }
 
+ nav a {
+  font-size: 14px;
+ }
 #nav-left {
   padding-right: 10px;
 }
