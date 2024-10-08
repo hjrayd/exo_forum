@@ -1,9 +1,8 @@
 /* 
 =================================================================
-========================= LAYOUT== ================================
+=========================LAYOUT==================================
 =================================================================
  */
- 
  * {
     margin: 0;
     padding: 0;
@@ -12,18 +11,15 @@
 }
 
 a {
+  color: white;
   text-decoration: none;
-  color: #fff;
 
 }
-
 
 #mainpage {
   min-height: 100vh;
-  background-color:rgba(93,128,216,0.6);
-   
+  background-color:rgba(93,128,216,0.6); 
 }
-
 
 a:visited {
   color: #fff;
@@ -34,19 +30,15 @@ h1 {
     text-align: center;
     margin-top: 30px;
 }
-
 /* 
 =================================================================
-========================= FORM== ================================
+=========================FORM==================================
 =================================================================
  */
-
-
 nav {
     display: flex;
     padding-top: 20px;
     justify-content: space-between;
-
 }
 
 #nav-left {
@@ -57,13 +49,9 @@ nav {
   padding-right: 30px;
 }
 
-
 #nav-right a {
     margin-right: 10px;
 }
-
-
-
 
 .form  {
     display: flex;
@@ -72,7 +60,6 @@ nav {
     flex-direction: column;
     color:#fff;
     margin-top: 80px;
-
 }
 
 form {
@@ -82,7 +69,6 @@ form {
     padding-top: 50px;
     padding-bottom: 30px;
     border-radius: 20px;
-
 }
 
 label{
@@ -104,9 +90,6 @@ input {
   padding-right: 20px;
   color: white;
   background-color:rgba(93,128,216,0.6);
-
- 
-
 }
 
 .submit {
@@ -115,42 +98,105 @@ input {
   justify-content: center;
   align-items: center;
 }
-
-
 /* 
 =================================================================
-========================= HOMEPAGE== ================================
+=========================HOMEPAGE==================================
 =================================================================
  */
-
  nav {
   background-color: rgba(93,128,216,0.6);
   padding-bottom: 20px;
  }
 
- #forum h1 {
+ #wrapper-category h1 {
   padding-bottom: 50px;
  }
 
- #forum a {
+ #wrapper-category a {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 20px;
-  font-size: 30px;
+  font-size: 20px;
  }
 
  #forum a:hover {
   text-decoration: underline;
  }
 
+ /* 
+=================================================================
+=========================LIST TOPIC==================================
+=================================================================
+ */
+
+ #wrapper-topic h1 {
+  margin-bottom: 20px;
+ }
+
+.topic-form label {
+  align-items: center;
+}
+
+ .topic-form {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+ }
+
+ .topics {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+ }
+
+
+ .topic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+
+
+ }
+
+ .delete-btn {
+  background-color: red;
+ padding: 5px;
+
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+
+ }
+
+ .lock-btn {
+  background-color: rgb(93,128,216);
+ padding: 5px;
+
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+
+ }
+
+ .topic-btn {
+  background-color: pink;
+  flex-direction: row;
+ }
+
 
 
 
 
 /* 
 =================================================================
-========================= RESPONSIVE== ================================
+=========================RESPONSIVE==================================
 =================================================================
  */
 @media screen and (max-width: 768px) { 
@@ -169,7 +215,4 @@ input {
   align-items: center;
   flex-direction: column;
  }
-
-
-
 }
