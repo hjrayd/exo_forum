@@ -1,8 +1,14 @@
-<h1>BIENVENUE SUR LE FORUM</h1>
+<div id="wrapper-home">
+    <h1>BIENVENUE SUR LE FORUM</h1>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut nemo quia voluptas numquam, itaque ipsa soluta ratione eum temporibus aliquid, facere rerum in laborum debitis labore aliquam ullam cumque.</p>
+    <p>Inscrivez vous ou connectez vous pour communiquer avec les autres utilisateurs !  <br> Vous pouvez aussi consultez les posts et topics en cliquant sur "Catégories"
+    </p>
 
-<p>
-    <a href="index.php?ctrl=security&action=login">Se connecter</a>
-    <a href="index.php?ctrl=security&action=register">S'inscrire</a>
-</p>
+    
+        <div class="home-btn">
+            <a href="index.php?ctrl=security&action=login">Se connecter</a>
+            <a href="index.php?ctrl=security&action=register">S'inscrire</a>
+        </div>
+    
+
+</div>

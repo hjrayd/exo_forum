@@ -12,36 +12,44 @@
     <div class="topics">
     <?php 
    
-        if ($topics) {
+        if ($topics) { 
             foreach($topics as $topic ){ 
-                $topicUser = $topic->getUser();
-                if($topicUser){
-                    $topicUserId = $topic->getId();
-                    $topicUserPseudo = $topicUser->getPseudo();
-                } else {
-                    $topicUserId = null;
-                    $topicUserPseudo = "Utilisateur supprimé";
-                }
-                if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {
-                    ?> 
-                  
-                        <div class="delete-btn">
-                            <p><a href="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>">Supprimer le topic</a></p> 
-                        </div> 
-                        <?php 
-                        { if ($topic->getLocked()===0) {?>
-                        <div class="lock-btn">
-                            <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
-                            </div>
-                            <?php } if ($topic->getLocked()===1) { ?>
-                            <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
-                        
+                
+                    $topicUser = $topic->getUser();
+                    if($topicUser){
+                        $topicUserId = $topic->getId();
+                        $topicUserPseudo = $topicUser->getPseudo();
+                    } else {
+                        $topicUserId = null;
+                        $topicUserPseudo = "Utilisateur supprimé";
+                    }
+                    if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {
+                        ?> 
+                    <div class="topic">
+                       
+                            <div class="delete-btn">
+                                <p><a href="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>">Supprimer le topic</a></p> 
+                            </div> 
+                            <?php 
+                            { if ($topic->getLocked()===0) {?>
+                            <div class="lock-btn">
+                                <p><a href="index.php?ctrl=forum&action=lockTopic&id=<?= $topic->getId() ?>">Verrouiller le topic</a></p>
+                                </div>
+                                <?php } if ($topic->getLocked()===1) { ?>
+                                <div class="lock-btn">
+                                    <p><a href="index.php?ctrl=forum&action=unlockedTopic&id=<?= $topic->getId() ?>">Déverouiller le topic</a></p>
+                                </div>
+                       
             <?php } 
             } 
         }  ?>
-        <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> (<?= $topic->formatDateTopic() ?>)</p>
-    <?php } ?>
-        
+                    <div class="topic-name">
+                        <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> <br> (<?= $topic->formatDateTopic() ?>) </p>  
+                    </div>
+        </div>
+        <?php } ?> 
+   
+         
     <?php } else {
         echo "Pas de topics";
     }
