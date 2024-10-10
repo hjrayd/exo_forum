@@ -22,9 +22,11 @@
                         } else {
                             $topicUserId = null;
                             $topicUserPseudo = "Utilisateur supprimé";
-                        }
-                        if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {?> 
+                        } ?>
                         <div class="topic">
+                            <?php
+                        if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {?> 
+                        
                             <div class="topic-btn">
                                     <div class="delete-btn">
                                         <p><a href="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>">Supprimer le topic</a></p> 
