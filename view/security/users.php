@@ -5,7 +5,7 @@
    
 
 ?>
-
+<div id="wrapper-users">
 <h1>Liste des Users</h1>
 
 <ul>
@@ -22,6 +22,7 @@
             else if($user->getBan()=== 1) { ?> <p><a href="index.php?ctrl=forum&action=debanUser&id=<?= $user->getId() ?>">Deban l'utilisateur</a></p> <?php } 
          }
         }
-    
+   
 
-    ?>
+    ?> 
+    </div>
