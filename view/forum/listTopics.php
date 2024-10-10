@@ -12,7 +12,10 @@
     <div class="topics">
         <?php 
     
-            if ($topics) { 
+            if ($topics) { ?>
+                <div class="posts">
+                    <?php
+                
                 foreach($topics as $topic ){ 
                     
                         $topicUser = $topic->getUser();
@@ -52,6 +55,7 @@
                     <?php } ?> 
     
             
+          </div>
         <?php } else {
             echo "Pas de topics";
         }
