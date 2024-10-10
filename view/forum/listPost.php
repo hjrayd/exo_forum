@@ -31,10 +31,12 @@
                     $postUserId = null;
                     $postUserPseudo = "Utilisateur supprimé";
                 }
+              ?>
+                <p><?= $postUserPseudo?> : <?= $post->getTexte() ?> (<?= $post->formatDatePost() ?>)</p> <br>
+                <?php
                 if($userId && ($postUserId == $userId || $role == "ROLE_ADMIN")) { ?>
                     <a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a> <?php
                 } ?>
-                <p><?= $postUserPseudo?> : <?= $post->getTexte() ?> (<?= $post->formatDatePost() ?>)</p> <br>
             </div> 
    
     <?php } ?>

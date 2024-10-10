@@ -20,7 +20,7 @@
                     
                         $topicUser = $topic->getUser();
                         if($topicUser){
-                            $topicUserId = $topic->getId();
+                            $topicUserId = $topic->getUser()->getId();
                             $topicUserPseudo = $topicUser->getPseudo();
                         } else {
                             $topicUserId = null;
