@@ -14,7 +14,15 @@
    
         if ($topics) {
             foreach($topics as $topic ){ 
-                if($userId && ($topic->getUser()->getId() == $userId || $role == "ROLE_ADMIN")) {
+                $topicUser = $topic->getUser();
+                if($topicUser){
+                    $topicUserId = $topic->getId();
+                    $topicUserPseudo = $topicUser->getPseudo();
+                } else {
+                    $topicUserId = null;
+                    $topicUserPseudo = "Utilisateur supprimé";
+                }
+                if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {
                     ?> 
                   
                         <div class="delete-btn">
@@ -31,7 +39,7 @@
             <?php } 
             } 
         }  ?>
-        <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topic->getUser() ?> (<?= $topic->formatDateTopic() ?>)</p>
+        <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> (<?= $topic->formatDateTopic() ?>)</p>
     <?php } ?>
         
     <?php } else {
