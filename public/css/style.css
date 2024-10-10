@@ -29,12 +29,17 @@ h1 {
 =========================HOME==================================
 =================================================================
  */
-
+#wrapper-home {
+  background-color: rgba(93,128,216,0.6);
+  min-height: 100vh;
+}
 
 
   #wrapper-home h1 {
     margin-bottom: 50px;
-    margin-top: 300px;
+    padding-top: 300px;
+    color: white;
+   
    
 }
 
@@ -47,8 +52,6 @@ h1 {
  }
 
  .home-btn{
-
-
   align-items: center;
   display: flex;
   justify-content: center;
@@ -61,8 +64,13 @@ font-size: 15px;
   background-color: rgba(93,128,216,0.6);
   padding: 10px;
   border-radius: 20px;
+  color: white;
+  text-decoration: none;
  }
 
+ #wrapper-home a:visited {
+  color: white;
+ }
 
 
 
@@ -226,6 +234,11 @@ input {
   text-decoration: none;
   font-size: 20px;
  
+ 
+ }
+
+ .topic-name {
+  margin-top: 20px;
  }
 
  .topic-name a:visited {
@@ -250,9 +263,6 @@ input {
   justify-content: center;
   display: flex;
   flex-direction: column;
-
-
-
  }
 
 
@@ -261,8 +271,7 @@ input {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  width: 400px;
+  width: 500px;
   background-color: white;
   margin: 20px;
   border-radius: 20px;
@@ -273,11 +282,11 @@ input {
 
  .delete-btn {
   background-color: red;
-  padding: 5px;
+  padding: 10px;
   color: white;
   border-radius: 20px;
   text-align: center;
-  width: 50%;
+ 
 
  }
 
@@ -295,8 +304,8 @@ input {
 
  .lock-btn {
   background-color: rgb(93,128,216);
- padding: 5px;
- width: 50%;
+ padding: 10px;
+  margin-left: 30px;
   color: white;
   border-radius: 20px;
   text-align: center;
@@ -304,9 +313,24 @@ input {
  }
 
  .topic-btn {
-  background-color: pink;
+  display: flex;
   flex-direction: row;
  }
+
+ .topic-form textarea {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+ .topic-form input {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+ 
 
 
 
@@ -316,10 +340,10 @@ input {
 =================================================================
  */
 
-
- #wrapper-post h1 {
-  margin-bottom: 20px;
- }
+#wrapper-post {
+  min-height: 100vh;
+  background-color: #EBEBEB;
+}
 
  
 

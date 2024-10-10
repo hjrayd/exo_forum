@@ -1,7 +1,7 @@
 <div id="wrapper-home">
     <h1>BIENVENUE SUR LE FORUM</h1>
 
-    <p>Inscrivez vous ou connectez vous pour communiquer avec les autres utilisateurs !  <br> Vous pouvez aussi consultez les posts et topics en cliquant sur "Catégories"
+    <p>Inscrivez vous ou connectez vous pour partager avec les autres utilisateurs !  <br> Vous pouvez aussi consultez les posts et topics en cliquant sur "Catégories"
     </p>
 
     
