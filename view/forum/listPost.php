@@ -14,30 +14,32 @@
 
     if ($posts) { 
         ?>
-        <div class="posts">
-            <?php
-       
-    foreach($posts as $post ){
-        ?>
-        <div class="post-content"> <?php 
-        $postUser = $post->getUser();
-        //on vérifie que le user du post existe
-        if($postUser){
-            //on récupère son pseudo
-            $postUserId = $postUser->getId();
-            $postUserPseudo = $postUser->getPseudo();
-        } else {
-            //si le user n'existe pas on remplace le "null" par "utilisateur supprimé"
-            $postUserId = null;
-            $postUserPseudo = "Utilisateur supprimé";
-        }
-        if($userId && ($postUserId == $userId || $role == "ROLE_ADMIN")) { ?>
-            <a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a> <?php
-        } ?>
-        <p><?= $postUserPseudo?> : <?= $post->getTexte() ?> (<?= $post->formatDatePost() ?>)</p> <br>
-            
-        </div> 
-    </div><?php } 
+    <div class="posts">
+                <?php
+        
+        foreach($posts as $post ){
+            ?>
+            <div class="post-content"> <?php 
+                $postUser = $post->getUser();
+                //on vérifie que le user du post existe
+                if($postUser){
+                    //on récupère son pseudo
+                    $postUserId = $postUser->getId();
+                    $postUserPseudo = $postUser->getPseudo();
+                } else {
+                    //si le user n'existe pas on remplace le "null" par "utilisateur supprimé"
+                    $postUserId = null;
+                    $postUserPseudo = "Utilisateur supprimé";
+                }
+                if($userId && ($postUserId == $userId || $role == "ROLE_ADMIN")) { ?>
+                    <a href="index.php?ctrl=forum&action=deletePost&id=<?= $post->getId() ?>">Supprimer le post</a> <?php
+                } ?>
+                <p><?= $postUserPseudo?> : <?= $post->getTexte() ?> (<?= $post->formatDatePost() ?>)</p> <br>
+            </div> 
+   
+    <?php } ?>
+     </div>
+     <?php
     } else {
         echo"Pas de post"; 
     }

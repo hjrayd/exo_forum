@@ -382,6 +382,13 @@ input {
 
  }
 
+ #wrapper-post form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+ }
+
  #wrapper-post form textarea {
   padding-left: 20px;
   padding-right: 20px;
@@ -390,6 +397,7 @@ input {
 }
 
 #wrapper-post form input {
+  margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   border: 1px solid #fff;
