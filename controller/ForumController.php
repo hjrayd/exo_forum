@@ -119,23 +119,25 @@ class ForumController extends AbstractController implements ControllerInterface{
                     "user_id" =>  Session::getUser()->getId()
                 ]);
 
-                $this->redirectTo("forum", "listTopicsByCategory", $id);
+                $this->redirectTo("forum", "listTopicsByCategory",$id);
         } else {
-            $this->redirectTo("forum", "listTopicsByCategory", $id);
+            $this->redirectTo("forum", "listTopicsByCategory",$id);
         }
     }
 
     public function lockTopic($id) {
         $topicManager = new TopicManager();
         $topic = $topicManager->findOneById($id);
+     
+        
 
         if ($topic) {
             $topicManager->closeTopic($id);
            
 
-                $this->redirectTo("forum", "listTopicsByCategory", $id);
+                $this->redirectTo("forum", "listTopicsByCategory", $categoryId);
             } else {
-                echo "Vous ne pouvez pas verrouiller ce topic";
+                $this->redirectTo("forum", "listTopicsByCategory", $categoryId);
             } 
         } 
 
@@ -150,7 +152,7 @@ class ForumController extends AbstractController implements ControllerInterface{
 
                 $this->redirectTo("forum", "listTopicsByCategory", $id);
             } else {
-                echo "Vous ne pouvez pas verrouiller ce topic";
+                $this->redirectTo("forum", "listTopicsByCategory", $id);
             } 
         } 
 
@@ -165,9 +167,9 @@ class ForumController extends AbstractController implements ControllerInterface{
                     $postManager->suppAllPost($id);
                     $topicManager ->suppTopic($id);
         
-                        $this->redirectTo("forum", "listTopicsByCategory", $id);
+                    $this->redirectTo("forum", "listTopicsByCategory", $id);
                     } else {
-                        echo "Vous ne pouvez pas supprimer ce topic";
+                        $this->redirectTo("forum", "listTopicsByCategory", $id);
                     } 
                 } 
 

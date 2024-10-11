@@ -1,13 +1,14 @@
 <?php
     $category = $result["data"]['category']; 
     $topics = $result["data"]['topics']; 
+
     $user = App\Session::getUser();
     $userId = App\Session::getUser() ? App\Session::getUser()->getId() : null; 
     $role = App\Session::getUser() ? App\Session::getUser()->getRole() : null; 
     $ban = App\Session::getUser() ? App\Session::getUser()->getBan() : null; 
 ?>
 <div id="wrapper-topic">
-    <h1>Liste des topics</h1>
+    <h1>Liste des topics dans la catégorie : <?=$category->getNomCategory()?> </h1>
     
     <div class="topics">
         <?php 
@@ -27,10 +28,13 @@
                             $topicUserId = null;
                             $topicUserPseudo = "Utilisateur supprimé";
                         } ?>
-                        <div class="topic">
+                         
+                        <div class="topic"onclick="location.href='index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>'">
+                       
                         <div class="topic-name">
-                                <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> <br> (<?= $topic->formatDateTopic() ?>) </p>  
+                                <p><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> <br> (<?= $topic->formatDateTopic() ?>) </p>  
                             </div>
+                    
                             <?php
                         if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {?> 
                         

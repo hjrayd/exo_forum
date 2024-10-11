@@ -18,7 +18,7 @@
             
                 foreach ($topics as $topic) { ?>
                 <ul>
-                    <li> <a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?=$topic->getTitre() ?></a> <?php ?> </li>
+                    <li> <a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?=$topic->getTitre() ?> (<?=$topic->getDateTopic()?>)</a> <?php ?> </li>
                 </ul>
                 <?php } }?>
     </div>

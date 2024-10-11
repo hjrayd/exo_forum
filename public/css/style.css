@@ -294,6 +294,7 @@ input {
   margin: 20px;
   border-radius: 20px;
   padding: 20px;
+  cursor: pointer;
 
 
  }
@@ -348,7 +349,6 @@ input {
   border: 1px solid #fff;
   border-radius: 20px;
 }
- 
 
 
 
