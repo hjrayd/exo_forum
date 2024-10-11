@@ -18,6 +18,7 @@
                 
                 foreach($topics as $topic ){ 
                     
+                    
                         $topicUser = $topic->getUser();
                         if($topicUser){
                             $topicUserId = $topic->getUser()->getId();
@@ -27,6 +28,9 @@
                             $topicUserPseudo = "Utilisateur supprimé";
                         } ?>
                         <div class="topic">
+                        <div class="topic-name">
+                                <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> <br> (<?= $topic->formatDateTopic() ?>) </p>  
+                            </div>
                             <?php
                         if($userId && ($topicUserId == $userId || $role == "ROLE_ADMIN")) {?> 
                         
@@ -48,9 +52,7 @@
                                 } 
                             }?>
 
-                            <div class="topic-name">
-                                <p><a href="index.php?ctrl=forum&action=listPostsByTopics&id=<?= $topic->getId() ?>"><?= $topic->getTitre() ?> </a> par <?= $topicUserPseudo ?> <br> (<?= $topic->formatDateTopic() ?>) </p>  
-                            </div>
+                           
                         </div>
                     <?php } ?> 
     

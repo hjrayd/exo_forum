@@ -239,6 +239,7 @@ input {
 
  .topic-name {
   margin-top: 20px;
+  margin-bottom: 20px;
  }
 
  .topic-name a:visited {
@@ -252,9 +253,11 @@ input {
 }
 
  .topic-form {
+  padding-top: 20px;
   justify-content: center;
   display: flex;
   align-items: center;
+
 
  }
 
@@ -387,6 +390,8 @@ input {
   justify-content: center;
   display: flex;
   flex-direction: column;
+
+
  }
 
  #wrapper-post form textarea {
@@ -420,8 +425,32 @@ input {
   background-color: red;
   color: white;
   text-decoration: none;
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px;
+ }
+
+ #wrapper-users h1 {
+  padding-bottom: 30px;
+ }
+
+ .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 50%;
+
+ }
+
+ .users {
+  display: flex;
+  justify-content: center;
+
  }
 
 /* 

@@ -32,7 +32,9 @@ class SecurityController extends AbstractController{
                         "pseudo" => $pseudo,
                         "password" => password_hash($pass1, PASSWORD_DEFAULT),
                         "mail" => $email,
-                        "role" => "ROLE_USER"
+                        "role" => "ROLE_USER",
+                        "ban" => 0,
+
                         
                     ]);
                     $this->redirectTo("security", "login");
