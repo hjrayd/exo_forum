@@ -134,6 +134,13 @@ font-size: 15px;
   min-height: 100vh;
  }
 
+ #wrapper-register p {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+ }
+
 
 
 

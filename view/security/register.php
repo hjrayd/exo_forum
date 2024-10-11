@@ -28,6 +28,8 @@
             </div>
             </form>
             </div>
+            <p>*Le mot de passe doit contenir au moins une majuscule, une miniscule, 8 caractères, un chiffre et un symbole </p>
     </div>
+   
 </body>
 </html>
