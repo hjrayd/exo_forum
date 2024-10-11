@@ -24,6 +24,37 @@ h1 {
 
 }
 
+
+nav {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+  background-color: #6D8DDC;
+  padding-bottom: 20px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin-right: 20px;
+}
+
+nav a:visited {
+color: white;
+}
+
+#nav-left {
+padding-left: 30px;
+}
+
+#nav-right {
+padding-right: 30px;
+}
+
+#nav-right a {
+  margin-right: 10px;
+}
+
 /* 
 =================================================================
 =========================HOME==================================
@@ -101,34 +132,7 @@ font-size: 15px;
 
 
 
-nav {
-    display: flex;
-    padding-top: 20px;
-    justify-content: space-between;
-    background-color: #6D8DDC;
-    padding-bottom: 20px;
-}
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-nav a:visited {
-  color: white;
-}
-
-#nav-left {
-  padding-left: 30px;
-}
-
-#nav-right {
-  padding-right: 30px;
-}
-
-#nav-right a {
-    margin-right: 10px;
-}
 
 .form  {
     display: flex;
@@ -427,6 +431,7 @@ input {
   text-decoration: none;
   padding: 10px;
   border-radius: 20px;
+
  }
 
  #wrapper-users h1 {
@@ -452,6 +457,68 @@ input {
   justify-content: center;
 
  }
+
+
+  /* 
+=================================================================
+=========================PROFILE==================================
+=================================================================
+ */
+
+ #wrapper-profile {
+  background-color: #EBEBEB;
+  min-height: 100vh;
+  
+ }
+
+ #wrapper-profile a {
+  text-decoration: none;
+ }
+
+
+ .infos-profile {
+  justify-content: center;
+  text-align: center;
+ }
+
+.infos-profile {
+  font-size: 25px;
+  padding-bottom: 10px;
+ }
+
+ .topic-profile {
+  margin-top: 30px;
+  justify-content: center;
+  text-align: center;
+
+ }
+
+ .topic-profile a {
+  color: black;
+ }
+
+ .topic-profile li {
+  font-size: 25px;
+ }
+
+ .delete-profile {
+justify-content: center;
+display: flex;
+align-items: center;
+padding-top: 50px;
+ }
+
+.delete-profile a {
+  color: white;
+  background-color: red;
+  border-radius: 20px;
+  padding: 15px;
+  text-decoration: none;
+ }
+
+
+
+
 
 /* 
 =================================================================
