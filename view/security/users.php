@@ -17,7 +17,7 @@
             <div class="users">
        <div class="user">
         <p>Pseudo : <?= $user->getPseudo()?></p>
-        <p> Date d'inscription : <?= $user->getDateInscription()?></p> <br>
+        <p> Date d'inscription : ( <?= $user->getDateInscription()?> )</p> <br>
            <?php  if ($user->getBan() === 0  ) { 
             ?> <p><a href="index.php?ctrl=forum&action=banUser&id=<?= $user->getId() ?>">Ban l'utilisateur</a></p> <?php }
             else if($user->getBan()=== 1) { ?> <p><a href="index.php?ctrl=forum&action=debanUser&id=<?= $user->getId() ?>">Deban l'utilisateur</a></p> <?php } 

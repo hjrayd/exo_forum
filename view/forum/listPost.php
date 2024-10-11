@@ -54,11 +54,13 @@
         echo "Vous êtes banni";
     } 
     else if($userId) {  ?>
+    <div class="form-post">
     <form action="index.php?ctrl=forum&action=addPost&id=<?=$topic->getId() ?>" method="POST">
         <textarea name="texte" id="texte" rows="4" cols="50">
         </textarea>
             <input type="submit" value="poster">
     </form> <br> 
+    </div>
     <?php } 
    
   ?>
