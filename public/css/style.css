@@ -454,6 +454,7 @@ input {
   padding: 10px;
   border-radius: 20px;
 
+
  }
 
  #wrapper-users h1 {
@@ -473,6 +474,8 @@ input {
   width: 50%;
 
  }
+
+
 
  .users {
   display: flex;
@@ -550,15 +553,24 @@ padding-top: 50px;
 @media screen and (max-width: 768px) { 
 
 
-
+#wrapper-home h1 {
+  padding-top: 200px;
+}
  nav {
   display: flex;
-  padding-left: auto;
-
+  flex-wrap: wrap;
+  justify-content: space-around;
  }
 
+ 
+
  #nav-right {
-  padding: 0;
+ padding-right: 0;
+ }
+
+ #nav-right a {
+  padding-right: 5px;
+
  }
 
  #nav-left {
